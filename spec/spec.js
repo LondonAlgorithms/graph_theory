@@ -130,6 +130,35 @@ describe('Undirected Graph', function(){
         expect(graph.vertexList[key].wasVisited).to.equal(true);
       });
     });
+
+    it('Depth First Search', function() {
+      var graph = new Graph();
+      var vertexList = ['S', 'A', 'B', 'C', 'D', 'E', 'F', 'G'];
+
+      for (var i=0; i< vertexList.length; i++) {
+        graph.addVertex(vertexList[i]);
+      }
+
+      graph.addEdge('S', 'A');
+      graph.addEdge('S', 'B');
+      graph.addEdge('S', 'C');
+      graph.addEdge('A', 'D');
+      graph.addEdge('B', 'E');
+      graph.addEdge('C', 'F');
+      graph.addEdge('D', 'G');
+      graph.addEdge('E', 'G');
+      graph.addEdge('F', 'G');
+
+      var startVertex = 'S';
+      var path = graph.dfs(startVertex);
+
+      expect(path).to.eql(['S', 'C', 'F', 'G', 'E', 'B', 'D', 'A']);
+
+      // All graph vertices have been visited
+      Object.keys(graph.vertexList).forEach(function(key,index) {
+        expect(graph.vertexList[key].wasVisited).to.equal(true);
+      });
+    });
   });
 
 });

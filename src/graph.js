@@ -131,4 +131,34 @@ Graph.prototype.bfs = function(startVertexLabel) {
  */
 Graph.prototype.dfs = function(startVertexLabel) {
 
+  var stack = [];
+  var start = this.vertexList[startVertexLabel];
+  var path = [];
+
+  stack.push(start);
+
+  while (stack.length) {
+    var nextVertex = stack.pop();
+
+    if (nextVertex.wasVisited === false) {
+
+      this.visit(nextVertex);
+
+      path.push(nextVertex.label);
+
+      var neighbours = this.adjacencyList[nextVertex.label];
+
+      for (var i = 0; i < neighbours.length; i++) {
+
+        if (neighbours[i].wasVisited === false) {
+          stack.push(neighbours[i]);
+        }
+
+      }
+
+    }
+
+  }
+
+  return path;
 };
