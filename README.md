@@ -23,12 +23,17 @@ Steps to follow:
     - addVertex to graph vertexList
     - addEdge to adjacency List
 
-2. Graph Traversal Algorithmns
+2. Graph Traversal Algorithms
     - Breadth First Search
     - Depth First Search
 
+These links are really usefull to see how the two algorithms work:
 
-Breadth First Search Algorithm:
+ - [Depth First Search Animation](https://www.cs.usfca.edu/~galles/visualization/DFS.html)
+ - [Breath First Search Animation](https://www.cs.usfca.edu/~galles/visualization/BFS.html)
+
+
+### Breadth First Search Algorithm:
 
  - Define a queue
  - Add to queue the starting vertex (enqueue)
@@ -42,4 +47,4 @@ Breadth First Search Algorithm:
 
 
 Depth First Search algorithm is the same code, the only thing that changes is that 
-it's using a stack instead of a queue
+it's using a **stack** instead of a **queue**.

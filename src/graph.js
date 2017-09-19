@@ -1,13 +1,3 @@
-/*
-  Define a:
-   - Graph Class
-   - Vertex Class
-   - Edge are represented in the AdjacencyList
-   - a function to addVertex to a Graph
-   - a function to addEdge to Graph to describe Graph Topology
-   - a function to visit a graph with Breadth First Search
- */
-
 function Graph() {
   // Keep track of each vertex
   this.vertexList = {};
