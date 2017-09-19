@@ -10,7 +10,9 @@ function Graph() {
  *
  * A Vertex has two properties: label and wasVisited
  */
-function Vertex() {
+function Vertex(label) {
+  this.label = label;
+  this.wasVisited = false;
 }
 /**
  * Add a vertex to Graph vertexList
@@ -25,6 +27,8 @@ function Vertex() {
  * }
  */
 Graph.prototype.addVertex = function(label) {
+  this.vertexList[label] = new Vertex(label);
+  this.adjacencyList[label] = [];
 };
 
 /**
@@ -47,6 +51,11 @@ Graph.prototype.addVertex = function(label) {
  * Note: the adjacencyList key are label string instead the value are Vertex Object
  */
 Graph.prototype.addEdge= function(labelVertexA, labelVertexB) {
+  var vertexA = this.vertexList[labelVertexA];
+  var vertexB = this.vertexList[labelVertexB];
+
+  this.adjacencyList[vertexA.label].push(vertexB);
+  this.adjacencyList[vertexB.label].push(vertexA);
 };
 
 /**
@@ -54,6 +63,7 @@ Graph.prototype.addEdge= function(labelVertexA, labelVertexB) {
  * @param vertex
  */
 Graph.prototype.visit = function(vertex) {
+  vertex.wasVisited = true;
 };
 
 Graph.prototype.logQueue = function(queue) {
@@ -76,6 +86,36 @@ Graph.prototype.logQueue = function(queue) {
  */
 Graph.prototype.bfs = function(startVertexLabel) {
 
+  var queue = [];
+  var start = this.vertexList[startVertexLabel];
+  var path = [];
+
+  queue.push(start);
+
+  while (queue.length) {
+    var nextVertex = queue.shift();
+
+    if (nextVertex.wasVisited === false) {
+
+      this.visit(nextVertex);
+
+      path.push(nextVertex.label);
+
+      var neighbours = this.adjacencyList[nextVertex.label];
+
+      for (var i = 0; i < neighbours.length; i++) {
+
+        if (neighbours[i].wasVisited === false) {
+          queue.push(neighbours[i]);
+        }
+
+      }
+
+    }
+
+  }
+
+  return path;
 };
 
 /**
