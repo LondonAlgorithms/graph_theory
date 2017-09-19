@@ -1,4 +1,4 @@
-describe('Graph', function(){
+describe('Undirected Graph', function(){
   context('Build the Graph Topology', function() {
     context('', function() {
       it('Define a Vertex', function() {
@@ -24,10 +24,13 @@ describe('Graph', function(){
 
       it('addEdge updates adjacency List', function() {
         var graph = new Graph();
+
+        // Adding Vertices
         graph.addVertex('S');
         graph.addVertex('A');
 
-        graph.addEdge('S', 'A');
+        // Create a link between vertices
+        graph.addEdge('S', 'A'); // This means that S has a neighbour A, and A has a neighbour S (this graph is undirected)
 
         // AdjacencyList for vertex S and A should be an array
         expect(Array.isArray(graph.adjacencyList['S'])).to.be.true;
@@ -44,8 +47,41 @@ describe('Graph', function(){
         expect(graph.adjacencyList['A']).to.eql([graph.vertexList['S']]);
 
       });
-    });
 
+      it('Vertex S has three neighbours (A, B, C)', function() {
+
+        var graph = new Graph();
+
+        // Adding Vertices
+        graph.addVertex('S');
+        graph.addVertex('A');
+        graph.addVertex('B');
+        graph.addVertex('C');
+
+        // Adding links between Vertices
+        graph.addEdge('S', 'A');
+        graph.addEdge('S', 'B');
+        graph.addEdge('S', 'C');
+
+        expect(graph.adjacencyList['S'].length).to.be.equal(3);
+        expect(graph.adjacencyList['S']).to.eql([graph.vertexList['A'], graph.vertexList['B'], graph.vertexList['C']]);
+
+        // Vertex A has only one neighbour
+        expect(graph.adjacencyList['A'].length).to.be.equal(1);
+        // Vertex A neighbour is S
+        expect(graph.adjacencyList['A'][0].label).to.be.equal('S');
+
+        // Vertex B has only one neighbour
+        expect(graph.adjacencyList['B'].length).to.be.equal(1);
+        // Vertex B neighbour is S
+        expect(graph.adjacencyList['B'][0].label).to.be.equal('S');
+
+        // Vertex C has only one neighbour
+        expect(graph.adjacencyList['C'].length).to.be.equal(1);
+        // Vertex C neighbour is S
+        expect(graph.adjacencyList['C'][0].label).to.be.equal('S');
+      });
+    });
   });
 
   // Refer to breadth_first_traversal.jpg
