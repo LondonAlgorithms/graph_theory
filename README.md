@@ -8,19 +8,38 @@ Let's see how to build and visit a Graph.
 
 ## Exercises
 
-The exercises I have created give you specs to guide you through creating a Graph by using an Adjacency List.
-After all the vertices and edges have been added to the Graph, the exercise requires to visit a Graph with a Breadth First Search algorithm.
+The exercises I have created give you specs to guide you through creating an undirect Graph by using an adjacency list.
+After all the vertices and edges have been added to the Graph, the exercise requires to visit a Graph with a Breadth First Search Algorithm.
 
 I have written some [Javascript tests](https://github.com/LondonAlgorithms/graph_theory/blob/master/spec/spec.js), you can run them by opening `SpecRunner.html`.
 
-![Graph](https://github.com/LondonAlgorithms/graph_theory/blob/master/breadth_first_traveral.jpg)
+The Graph to build is this one:
+[Test Graph](https://github.com/LondonAlgorithms/graph_theory/blob/master/breadth_first_traveral.jpg)
+
+Steps to follow:
 
 1. Build the Graph Topology
     - Define Vertex Class
     - addVertex to graph vertexList
     - addEdge to adjacency List
 
-2. Graph Traversal
-    - Visit a node
+2. Graph Traversal Algorithmns
     - Breadth First Search
     - Depth First Search
+
+
+Breadth First Search Algorithm:
+
+ - Define a queue
+ - Add to queue the starting vertex (enqueue)
+ - While there is a Vertex in the queue
+    - Get the next vertex to visit from the queue
+    - If the vertex has not been visited
+        - Visit the vertex
+        - Get vertex neighbours via Adjancency List
+        - For each vertex neighbour
+        - If the neighbour has not been visited → add to the queue
+
+
+Depth First Search algorithm is the same code, the only thing that changes is that 
+it's using a stack instead of a queue
