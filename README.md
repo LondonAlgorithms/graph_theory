@@ -33,6 +33,9 @@ These links are really usefull to see how the two algorithms work:
  - [Breath First Search Animation](https://www.cs.usfca.edu/~galles/visualization/BFS.html)
 
 
+## LINK TO SLIDE
+[Graph Theory Slide](https://docs.google.com/presentation/d/1SlQUjDgFqSeDUCBup2AjtSvEEi-ZdvjW-JPTdr7BDRk/edit?usp=sharing)
+
 ### Breadth First Search Algorithm:
 
  - Define a queue
