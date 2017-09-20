@@ -66,6 +66,7 @@ Graph.prototype.visit = function(vertex) {
   vertex.wasVisited = true;
 };
 
+
 Graph.prototype.logQueue = function(queue) {
   console.log(queue.map(function(item) { return item.label }));
 };
@@ -91,28 +92,24 @@ Graph.prototype.bfs = function(startVertexLabel) {
   var path = [];
 
   queue.push(start);
+  this.visit(start);
 
   while (queue.length) {
+
+    this.logQueue(queue);
+
     var nextVertex = queue.shift();
 
-    if (nextVertex.wasVisited === false) {
+    path.push(nextVertex.label);
 
-      this.visit(nextVertex);
+    var neighbours = this.adjacencyList[nextVertex.label];
 
-      path.push(nextVertex.label);
-
-      var neighbours = this.adjacencyList[nextVertex.label];
-
-      for (var i = 0; i < neighbours.length; i++) {
-
-        if (neighbours[i].wasVisited === false) {
-          queue.push(neighbours[i]);
-        }
-
+    for (var i = 0; i < neighbours.length; i++) {
+      if (neighbours[i].wasVisited === false) {
+        this.visit(neighbours[i]);
+        queue.push(neighbours[i]);
       }
-
     }
-
   }
 
   return path;
