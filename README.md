@@ -37,13 +37,14 @@ These links are really usefull to see how the two algorithms work:
 
  - Define a queue
  - Add to queue the starting vertex (enqueue)
+ - Visit the starting vertex
  - While there is a Vertex in the queue
     - Get the next vertex to visit from the queue
-    - If the vertex has not been visited
-        - Visit the vertex
-        - Get vertex neighbours via Adjancency List
+    - Get vertex neighbours via Adjancency List
         - For each vertex neighbour
-        - If the neighbour has not been visited → add to the queue
+        - If the neighbour has not been visited 
+            → visit neighbour
+            → add to the queue
 
 
 Depth First Search algorithm is the same code, the only thing that changes is that 

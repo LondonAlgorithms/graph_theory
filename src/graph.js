@@ -56,6 +56,10 @@ Graph.prototype.addEdge= function(labelVertexA, labelVertexB) {
 Graph.prototype.visit = function(vertex) {
 };
 
+Graph.prototype.logQueue = function(queue) {
+  console.log(queue.map(function(item) { return item.label }));
+};
+
 /**
  * Visit a Graph with Breadth First Search
  * @param startVertexLabel
@@ -63,10 +67,20 @@ Graph.prototype.visit = function(vertex) {
  * Keep in mind:
  * - it uses a queue
  * - it starts by adding to the queue the starting vertex
+ * - Visit the starting vertex
  * - while there is something on the queue
- * - visit the next vertex on the queue
- * - add all vertex neighbours to the queue
+ * - Get vertex neighbours
+ * - for each neighbour that has not been visited
+ *      - visit the neighbour
+ *      - add all vertex neighbours to the queue
  */
 Graph.prototype.bfs = function(startVertexLabel) {
+
 };
 
+/**
+ * If you have time, try to implement DFS, just change the data structure to be a stack
+ */
+Graph.prototype.dfs = function(startVertexLabel) {
+
+};
