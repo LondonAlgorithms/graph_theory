@@ -80,6 +80,14 @@ Graph.prototype.bfs = function(startVertexLabel) {
 
 /**
  * If you have time, try to implement DFS, just change the data structure to be a stack
+ * - Use a stack
+ * - Add starting vertex to a stack
+ * - While there is an element on the stack
+ * - if the vertex has not been visited
+ *    - visit the vertex
+ *    - get all vertex neighbours
+ *      - for each neighbour if has not been visited
+ *        - add to stack
  */
 Graph.prototype.dfs = function(startVertexLabel) {
 
