@@ -14,6 +14,7 @@ After all the vertices and edges have been added to the Graph, the exercise requ
 I have written some [Javascript tests](https://github.com/LondonAlgorithms/graph_theory/blob/master/spec/spec.js), you can run them by opening `SpecRunner.html`.
 
 The Graph to build is this one:
+
 ![Test Graph](https://github.com/LondonAlgorithms/graph_theory/blob/master/breadth_first_traversal.jpg)
 
 Steps to follow:
